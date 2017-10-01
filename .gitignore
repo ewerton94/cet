@@ -1,4 +1,4 @@
 *.pyc
 *.sqlite3
-*settings.py
-*email.py
+cet/settings.py
+cet/email.py
