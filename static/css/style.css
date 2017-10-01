@@ -143,8 +143,7 @@ banner
 }
 #banner{
 	background: url('../img/bg-banner.jpg') no-repeat fixed;
-	background-size: cover;
-	min-height: 650px;
+	background-size: 100% auto;
 	width:100%;
 	position: relative;
 }
@@ -578,14 +577,21 @@ footer
   #downloads .downloads-item {
     margin: 0 0 30px;
   }
+
 }
 
 
 
 @media (min-width: 551px) and (max-width: 980px){
+  .bg-color{
+  	min-height: 500px;
+  }
 
 }
 @media (min-width: 220px) and (max-width: 551px){
+  .bg-color{
+    min-height: 300px;
+  }
     .testi-info{
         margin-bottom: 20px;
     }
