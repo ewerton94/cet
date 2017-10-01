@@ -3,3 +3,4 @@
 cet/settings.py
 cet/email.py
 *.wsgi
+media/*
