@@ -2,3 +2,4 @@
 *.sqlite3
 cet/settings.py
 cet/email.py
+*.wsgi
