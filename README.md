@@ -1,2 +1,2 @@
-# Site do PET CiÊncia e Tecnologia
+# Site do PET Ciência e Tecnologia
 PET Ciência e Tecnologia
