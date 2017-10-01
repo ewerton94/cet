@@ -1,0 +1,284 @@
+{% extends 'base.html' %}
+{% block title %}Processo Seletivo | {% endblock %}
+{% block body %}
+
+
+<script>
+function formatar(mascara, documento){
+  var i = documento.value.length;
+  var saida = mascara.substring(0,1);
+  var texto = mascara.substring(i)
+  
+  if (texto.substring(0,1) != saida){
+            documento.value += texto.substring(0,1);
+  }
+  
+} 
+</script>
+
+
+
+	<section id="selecao" class="section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="ser-title">Seleção 2017.1 - Inscriçoes abertas!</h2>
+					<hr class="botm-line">
+				</div>
+				
+					<div class="col-md-4">
+                   <img class="img-responsive img-rounded" src="{{ selecao.foto.url }}" alt="">
+                    </div>
+                    <div class="col-md-4">
+                    <ul class="list-group">
+  <li class="list-group-item btn-form">Informações importantes</li>
+  <li class="list-group-item">Para se inscrever, preencha o <a href="#inscricao">formulário de inscrição</a>.</li>
+  <li class="list-group-item">Direcionado para alunos das Engenharias e Ciências exatas.</li>
+  <li class="list-group-item">Para mais informações, Visite nossa sala de permanência!</li>
+</ul>
+
+                   </div>
+				
+				<div class="col-md-4">
+				<ul class="list-group">
+  <li class="list-group-item btn-form">Documentos Importantes</li>
+  <li class="list-group-item"><a href="{{ selecao.edital.url }}"><i class="fa fa-file"></i> Edital de Seleção</a></li>
+  <li class="list-group-item"><a href="https://cenapet.files.wordpress.com/2014/10/manualorientabasicas.pdf"><i class="fa fa-file"></i> Manual de Orientações Básicas - PET (MEC)</a></li>
+</ul>
+                   
+				</div>
+				
+		</div>
+	</section>
+	
+	<section id="inscricao" class="section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="ser-title">Formulário de Inscrição</h2>
+					<hr class="botm-line">
+				</div>
+				<div class="col-md-8">
+				
+				
+				{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+							<form action="" method="post" role="form" enctype="multipart/form-data" style="color:black" >
+                            {% csrf_token %}
+
+                            <h3>Informações Pessoais</h3>
+                            <label for="nome">Nome:</label>
+							    <div class="form-group">
+                                    <input type="text" name="nome" class="form-control br-radius-zero" id="nome" placeholder="Nome" data-rule="minlen:4" required/>
+                                </div>
+                                
+                               
+                                <label for="data">data de nascimento:</label>
+                                <div class="form-group">
+                                    <input type="date" name="data" class="form-control br-radius-zero" id="data" placeholder="01/01/2001" data-rule="minlen:4" required/>
+                                </div>
+                                 <label for="naturalidade">Naturalidade:</label>
+							    <div class="form-group">
+                                    <input type="text" name="naturalidade" class="form-control br-radius-zero" id="naturalidade" placeholder="naturalidade" data-rule="minlen:4" required/>
+                                </div>
+                                <label for="estado_civil">Estado Civil</label>
+                                <div class="form-group">
+                                    <input type="text" name="estado_civil" class="form-control br-radius-zero" id="estado_civil" placeholder="Estado Civil" data-rule="minlen:4" required/>
+                                </div>
+                                <div class="row">
+                                <div class="col-xs-8 col-sm-6" >
+                                <label for="rg">Nº Identidade</label>
+                                <div class="form-group">
+                                    <input type="text" name="rg" class="form-control br-radius-zero" id="rg" placeholder="RG" data-rule="minlen:4" required/>
+                                </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-6" >
+                                    <label for="arquivorg">Carregar arquivo com cópia do RG</label>
+                                <div class="form-group">
+                                    <input type="file" name="arquivorg" class="form-control" id="arquivorg" placeholder="RG" data-rule="minlen:4" required/>
+                                </div>
+                                </div>
+                                </div>
+                                
+                                <div class="row">
+                                <div class="col-xs-8 col-sm-6" >
+                                <label for="rg">Nº CPF</label>
+                                <div class="form-group">
+                                    <input type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" class="form-control br-radius-zero" id="cpf" placeholder="000.000.000-00" maxlength="14" data-rule="minlen:11" required/>
+                                </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-6">
+                                    <label for="arquivocpf">Carregar arquivo com cópia do CPF</label>
+                                <div class="form-group">
+                                    <input type="file" name="arquivocpf" class="form-control br-radius-zero" id="arquivocpf" placeholder="RG" data-rule="minlen:4" />
+                                </div>
+                                </div>
+                                </div>
+                                <div class="row">
+                                <div class="col-xs-8 col-sm-6" >
+                                <label for="endereco">Endereço:</label>
+                                <div class="form-group">
+                                    <input type="text" name="endereco" class="form-control br-radius-zero" id="endereco" placeholder="" maxlength="14" data-rule="minlen:11" required/>
+                                </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-6" >
+                                <div class="form-group">
+                                  <label for="mora_com">Mora com:</label>
+                                  <select class="form-control" name="mora_com" id="sel1">
+                                    <option value = "Pais">Pais</option>
+                                    <option value = "Familiares">Familiares</option>
+                                    <option value = "Amigos">Amigos</option>
+                                    <option value = "Sozinho">Sozinho</option>
+                                    <option value = "Outros">Outros</option>
+                                  </select>
+                                </div>
+                                </div>
+                                </div>
+                                 
+                            
+                                   
+                                <h3>Informações de contato</h3>
+                                    
+                                
+                                <label for="email">E-mail</label>
+                                <div class="form-group">
+                                    <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" required/>
+                            
+                                </div>
+                                
+                                <label for="telefone">Telefone</label>
+                                <div class="form-group">
+                                    <input type="text" class="form-control br-radius-zero" name="telefone" id="telefone" placeholder="82 98888-8888" data-rule="email"  maxlength="13" OnKeyPress="formatar('## #####-####', this)"  required/>
+                                   
+                                </div>
+                                <h3>Foto</h3>
+                                 <label for="foto">Carregue uma foto atual!</label>
+                                <div class="form-group">
+                                    <input type="file" name="foto" class="form-control br-radius-zero" id="foto" placeholder="RG" data-rule="minlen:4" required/>
+                                </div>
+                                
+                                <h3>Informações sobre ensino médio</h3>
+                                <label for="local">Local e ano que concluiu o ensino médio:</label>
+							    <div class="form-group">
+                                    <input type="text" name="local" class="form-control br-radius-zero" id="local" placeholder="" data-rule="minlen:4" required/>
+                                </div>
+                                <label for="certificado">Carregue um arquivo com seu certificado de ensino médio:</label>
+                                <div class="form-group">
+                                    <input type="file" name="certificado" class="form-control br-radius-zero" id="certificado" placeholder="RG" data-rule="minlen:4" required/>
+                                </div>
+                                <h3>Informações acadêmicas</h3>
+                                
+                                <div class="row">
+                                <div class="col-xs-8 col-sm-6">
+                                <label for="matricula">Número de matrícula:</label>
+							    <div class="form-group">
+                                    <input type="text" name="matricula" class="form-control br-radius-zero" id="matricula" placeholder="" data-rule="minlen:4" required/>
+                                </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-6" >
+                                    <label for="comprovante_matricula">Carregar comprovante de matrícula</label>
+                                <div class="form-group">
+                                    <input type="file" name="comprovante_matricula" class="form-control br-radius-zero" id="comprovante_matricula" placeholder="RG" data-rule="minlen:4" required />
+                                </div>
+                                </div>
+                                </div>
+                                
+							    <div class="form-group">
+                                <label for="curso">Curso:</label>
+                                    <input type="text" name="curso" class="form-control br-radius-zero" id="curso" placeholder=""  data-rule="minlen:4" required/>
+                                </div>
+                                <div class="row">
+                                <div class="col-xs-8 col-sm-6" >
+                                <label for="periodo">Período:</label>
+							    <div class="form-group">
+                                    <input type="numer" name="periodo" class="form-control br-radius-zero" id="periodo" placeholder="" data-rule="minlen:4" required/>
+                                </div>
+                                </div>
+                                <div class="col-xs-8 col-sm-6">
+                                    <label for="historico">Carregar Histórico analítico</label>
+                                <div class="form-group">
+                                    <input type="file" name="historico" class="form-control br-radius-zero" id="historico" placeholder="RG" data-rule="minlen:4" required />
+                                </div>
+                                </div>
+                                </div>
+                                
+                                <label for="exerce">Exerce alguma atividade fora da UFAL?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="exerce" value="1" id="exerce">Sim</label>
+                                <label class="radio-inline"><input type="radio" name="exerce" value="0">Não</label>                                
+                                </div>
+                                <div id="idpergunta_atividade">
+                                <label for="atividade">Qual?</label>
+							    <div class="form-group">
+                                    <input type="text" name="atividade" class="form-control br-radius-zero" id="atividade" placeholder="" data-rule="minlen:4"/>
+                                </div>
+                                </div>
+                                
+                                <label for="exerce">Recebe algum auxílio ou bolsa da UFAL?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="recebe">Sim</label>
+                                <label class="radio-inline"><input type="radio" name="recebe">Não</label>                                
+                                </div>
+                                <label for="bolsa">Qual?</label>
+							    <div class="form-group">
+                                    <input type="text" name="bolsa" class="form-control br-radius-zero" id="bolsa" placeholder="" data-rule="minlen:4"/>
+                                </div>
+                                
+                                <label for="participa">Participa de algum projeto de Pesquisa?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="participa" value="1" >Sim</label>
+                                <label class="radio-inline"><input type="radio" name="participa" value="0">Não</label>                                
+                                </div>
+                                
+                                <label for="projeto">Título projeto</label>
+							    <div class="form-group">
+                                    <input type="text" name="projeto" class="form-control br-radius-zero" id="projeto" placeholder="" data-rule="minlen:4"/>
+                                </div>
+                                
+                                <label for="orientador">Orientador</label>
+							    <div class="form-group">
+                                    <input type="text" name="orientador" class="form-control br-radius-zero" id="orientador" placeholder="" data-rule="minlen:4"/>
+                                </div>
+                                
+                                
+                                
+
+                                
+                                
+
+
+                                <!--
+                                
+                                
+                                
+                                <div class="form-group">
+                                    <input type="text" class="form-control br-radius-zero" name="assunto" id="subject" placeholder="Assunto" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" required />
+                                    <div class="validation"></div>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control br-radius-zero" name="mensagem" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Mensagem" required></textarea>
+                                    <div class="validation"></div>
+                                </div>
+                                -->
+								<div class="form-action">
+									<button type="submit" class="btn btn-form">Enviar</button>
+								</div>
+							</form>
+
+				</div>
+				
+		</div>
+	</section>
+	
+	
+
+	
+	
+{% endblock %}
+
+

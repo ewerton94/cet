@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Downloads {{ pasta.titulo }}{% endblock %}
+{% block body %}
+	<section id="downloads" class="section-padding">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<h2 class="ser-title">Downloads - {{ pasta.titulo }}</h2>
+					<hr class="botm-line">
+				</div>
+				<div class="col-md-12">
+					<ul class="list-group">
+					{% for arquivo in arquivos %}
+  <li class="list-group-item"><a href="{{ arquivo.arquivo.url }}"><i class="fa fa-file"></i>{{ arquivo.titulo }}</a></li>
+                    {% endfor %}
+</ul>
+				</div>
+				
+		</div>
+	</section>
+	
+	
+{% endblock %}
+
+

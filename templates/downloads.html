@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+               <div class="col-md-12">
+            <h2 class="ser-title">Downloads</h2>
+            <hr class="botm-line">
+        </div>
+               {% for pasta in pastas %}
+                <div class="col-md-4 col-sm-6 downloads-item">
+                    <a href="{{ BASE_URL }}/downloads/{{ pasta.id }}" class="downloads-link" data-toggle="modal">
+                        <div class="downloads-hover">
+                            <div class="downloads-hover-content">
+                                <i class="fa fa-plus fa-3x"></i>
+                            </div>
+                        </div>
+                        <img src="{{ pasta.imagem.url }}" class="img-responsive" alt="">
+                    </a>
+                    <div class="downloads-caption">
+                        <h4>{{ pasta.titulo }}</h4>
+                        <p class="text-muted">{{ pasta.subtitulo }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+</div>
