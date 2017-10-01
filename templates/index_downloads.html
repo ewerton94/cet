@@ -11,15 +11,13 @@
 				<div class="col-md-12">
 					<ul class="list-group">
 					{% for arquivo in arquivos %}
-  <li class="list-group-item"><a href="{{ arquivo.arquivo.url }}"><i class="fa fa-file"></i>{{ arquivo.titulo }}</a></li>
+  <li class="list-group-item"><a href="{{ arquivo.arquivo.url }}"><i class="fa fa-file"></i>  {{ arquivo.titulo }}</a></li>
                     {% endfor %}
 </ul>
 				</div>
-				
+
 		</div>
 	</section>
-	
-	
+
+
 {% endblock %}
-
-
