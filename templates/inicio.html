@@ -2,6 +2,32 @@
 {% block title %}Início | {% endblock %}
 {% block body %}
 
+{% load staticfiles %}
+<section id="sobre" class="section-padding">
+		<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<h2 class="ser-title">Sobre nós</h2>
+						<hr class="botm-line">
+					</div>
+					
+			</div>
+			</div>
+			<div id="fh5co-portfolio">
+					{% for sobre in sobres %}
+					<div class="fh5co-portfolio-item {% if sobre.eh_par %}fh5co-img-right{% endif %}">
+							<div class="fh5co-portfolio-figure animate-box" style="background-image: url({{ STATIC_URL }}{{ sobre.foto.url }});"></div>
+							<div class="fh5co-portfolio-description">
+								<h2>{{ sobre.nome }}</h2>
+								{{ sobre.descricao }}
+								
+							</div>
+						</div>
+						{% endfor %}
+			</div>
+
+</section>
+
    {% for pagina in paginas_disponiveis %}
     <section id="{{ pagina.url }}" class="section-padding">
 		{% include  pagina.nome_template %}
@@ -30,6 +56,7 @@
 			    </div>
 			    {% endfor %}
 		</div>
+		</div>
 	</section>
 {% endif %}
 	<!--/ doctor team-->
@@ -37,25 +64,6 @@
 
 	<!--/ testimonial-->
 	<!--cta 2-->
-	<section id="sobre" class="section-padding">
-	{% for sobre in sobres %}
-		<div class="container">
-			<div class=" row">
 
-				<div class="col-md-1"></div>
-	            <div class="text-right-md col-md-4 col-sm-4">
-	              <h2 class="section-title white lg-line">« {{ sobre.nome }} »</h2>
-	            </div>
-	            <div class="col-md-6 col-sm-7" style="color:white;text-align:justify;">
-	              {{ sobre.descricao }}
-	            </div>
-	            <div class="col-md-1"></div>
-
-
-	        </div>
-		</div>
-		    <br>
-		{% endfor %}
-	</section>
 
 {% endblock %}
