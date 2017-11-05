@@ -10,6 +10,10 @@ class Sobre(models.Model):
     ordem =  models.IntegerField()
     def __str__(self):
         return self.nome
+    
+    @property
+    def eh_par(self):
+        return self.ordem%2==0 
 
     
 class Curso(models.Model):
