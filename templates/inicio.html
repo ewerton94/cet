@@ -3,6 +3,11 @@
 {% block body %}
 
 {% load staticfiles %}
+{% for pagina in paginas_disponiveis %}
+    <section id="{{ pagina.url }}" class="section-padding">
+		{% include  pagina.nome_template %}
+	</section>
+	{% endfor %}
 <section id="sobre" class="section-padding">
 		<div class="container">
 				<div class="row">
@@ -28,11 +33,7 @@
 
 </section>
 
-   {% for pagina in paginas_disponiveis %}
-    <section id="{{ pagina.url }}" class="section-padding">
-		{% include  pagina.nome_template %}
-	</section>
-	{% endfor %}
+   
 	{% if petianos %}
 	<section id="petianos" class="section-padding">
 		<div class="container">
