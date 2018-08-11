@@ -17,6 +17,7 @@ class Sobre(models.Model, UnicodePython2e3):
     foto = models.FileField(upload_to='uploads/%Y/%m/%d/')
     descricao = models.TextField()
     ordem =  models.IntegerField()
+    link = models.CharField(max_length=400, null=True, blank=True)
     def __unicode__(self):
         return self.nome
     
