@@ -3,7 +3,17 @@ from __future__ import unicode_literals
 from django.db import models
 from paginas.models import Pagina
 
-class Selecao(models.Model):
+import sys
+
+class UnicodePython2e3(object):
+    if sys.version_info[0] >= 3: # Python 3
+        def __str__(self):
+            return self.__unicode__()
+    else:  # Python 2
+        def __str__(self):
+            return self.__unicode__().encode('utf8')
+
+class Selecao(models.Model, UnicodePython2e3):
     class Meta:
         verbose_name = "Seleção"
         verbose_name_plural = "Seleção"
@@ -14,7 +24,7 @@ class Selecao(models.Model):
     pagina = models.ForeignKey(Pagina)
     foto = models.FileField(upload_to='uploads/%Y/%m/%d/')
     edital = models.FileField(upload_to='uploads/%Y/%m/%d/')
-    def __str__(self):
+    def __unicode__(self):
         return self.descricao
     
 
