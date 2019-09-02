@@ -30,7 +30,7 @@ class Selecao(models.Model, UnicodePython2e3):
 
     
 class Candidato(models.Model):
-    nome = models.CharField(max_length=200)
+    nome = models.CharField(max_length=500, verbose_name="Nome Civil")
     data = models.DateTimeField()
     naturalidade = models.CharField(max_length=200)
     estado_civil = models.CharField(max_length=200)
@@ -50,10 +50,19 @@ class Candidato(models.Model):
     curso = models.CharField(max_length=200)
     periodo = models.CharField(max_length=200)
     historico = models.FileField(upload_to='uploads/%Y/%m/%d/')
-    atividade = models.CharField(max_length=300,blank=True)
+    atividade = models.CharField(max_length=300,blank=True, verbose_name="Atividade Remunerada fora da UFAL")
     bolsa = models.CharField(max_length=300,blank=True)
     projeto = models.CharField(max_length=300,blank=True)
     orientador = models.CharField(max_length=300,blank=True)
+    nome_social = models.CharField(max_length=500, verbose_name="Nome Social", blank=True)
+    situacao_projeto = models.CharField(max_length=300,blank=True)
+    reserva_de_vagas = models.CharField(max_length=300,blank=True)
+    auto_declaracao = models.FileField(upload_to='uploads/%Y/%m/%d/', blank=True)
+    comprovante_cad_unico = models.FileField(upload_to='uploads/%Y/%m/%d/', blank=True)
+    necessita_atendimento_especial = models.CharField(max_length=300,blank=True)
+    atendimento_especial = models.CharField(max_length=300,blank=True)
+    date_created = models.DateTimeField(auto_now=True)
+
 
 '''Local e ano que concluiu o ensino médio
 Conclusão ensino médio

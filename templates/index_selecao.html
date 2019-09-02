@@ -22,7 +22,7 @@ function formatar(mascara, documento){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="ser-title">Seleção 2018.2 - Inscriçoes abertas!</h2>
+					<h2 class="ser-title">Seleção 2019.2 - Inscriçoes abertas!</h2>
 					<hr class="botm-line">
 				</div>
 				
@@ -72,9 +72,16 @@ function formatar(mascara, documento){
                             {% csrf_token %}
 
                             <h3>Informações Pessoais</h3>
+
+
                             <label for="nome">Nome:</label>
 							    <div class="form-group">
                                     <input type="text" name="nome" class="form-control br-radius-zero" id="nome" placeholder="Nome" data-rule="minlen:4" required/>
+                                </div>
+
+                                <label for="nome">Nome Social (Caso possua):</label>
+							    <div class="form-group">
+                                    <input type="text" name="nome_social" class="form-control br-radius-zero" id="nome_social" placeholder="Nome Social (Caso possua)" data-rule="minlen:4" />
                                 </div>
                                 
                                
@@ -134,6 +141,7 @@ function formatar(mascara, documento){
                                     <option value = "Familiares">Familiares</option>
                                     <option value = "Amigos">Amigos</option>
                                     <option value = "Sozinho">Sozinho</option>
+                                    <option value = "Cônjuge">Cônjuge</option>
                                     <option value = "Outros">Outros</option>
                                   </select>
                                 </div>
@@ -207,17 +215,23 @@ function formatar(mascara, documento){
                                 </div>
                                 </div>
                                 
-                                <label for="exerce">Exerce alguma atividade fora da UFAL?</label>
+                                <label for="exerce">Exerce alguma atividade remunerada fora da UFAL?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="exerce" value="1" id="exerce">Sim</label>
                                 <label class="radio-inline"><input type="radio" name="exerce" value="0">Não</label>                                
                                 </div>
+
+                                
+
+                                
                                 <div id="idpergunta_atividade">
-                                <label for="atividade">Qual?</label>
+                                <label for="atividade">Onde?</label>
 							    <div class="form-group">
                                     <input type="text" name="atividade" class="form-control br-radius-zero" id="atividade" placeholder="" data-rule="minlen:4"/>
                                 </div>
                                 </div>
+
+                        
                                 
                                 <label for="exerce">Recebe algum auxílio ou bolsa da UFAL?</label>
 							    <div class="form-group">
@@ -232,8 +246,18 @@ function formatar(mascara, documento){
                                 <label for="participa">Participa de algum projeto de Pesquisa?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="participa" value="1" >Sim</label>
-                                <label class="radio-inline"><input type="radio" name="participa" value="0">Não</label>                                
+                                <label class="radio-inline"><input type="radio" name="participa" value="0">Não</label>    
                                 </div>
+
+                                <div class="form-group">
+                                    <label for="mora_com">Sua situação no projeto:</label>
+                                    <select class="form-control" name="situacao_projeto" id="situacao_projeto">
+                                      <option value = "Bolsista">Bolsista</option>
+                                      <option value = "Colaborador com vínculo institucional">Colaborador com vínculo institucional</option>
+                                      <option value = "Colaborador sem vínculo">Colaborador sem vínculo</option>
+                                
+                                    </select>
+                                  </div>
                                 
                                 <label for="projeto">Título projeto</label>
 							    <div class="form-group">
@@ -246,6 +270,39 @@ function formatar(mascara, documento){
                                 </div>
                                 
                                 
+                                
+                                <label for="reserva_de_vagas">*OPTA TAMBÉM POR CONCORRER NA RESERVA DE VAGAS PARA CANDIDATOS(AS)
+                                    AUTODECLARADOS(AS) PRETOS(AS), PARDOS(AS) OU INDÍGENAS (PPI)?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="reserva_de_vagas" value="Sim" >Sim</label>
+                                <label class="radio-inline"><input type="radio" name="reserva_de_vagas" value="Não">Não</label>    
+                                </div>
+
+                                <label for="auto_declaracao">Autodeclaração étnico-racial caso o(a) candidato(a) opte por se inscrever para a vaga destinada aos(às)
+                                    autodeclarados(as) Pretos(as), Pardos(as) ou Indígenas (PPI), disponível no Anexo II do edital de seleção;</label>
+                                <div class="form-group">
+                                    <input type="file" name="auto_declaracao" class="form-control br-radius-zero" id="auto_declaracao" />
+                                </div>
+
+                                <label for="atendimento_especial">**O CANDIDATO(A) NECESSITA DE ATENDIMENTO ESPECIAL?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="atendimento_especial" value="Sim" >Sim</label>
+                                <label class="radio-inline"><input type="radio" name="atendimento_especial" value="Não">Não</label>    
+                                </div>
+
+                                <label for="necessita_atendimento_especial">Qual?</label>
+							    <div class="form-group">
+                                    <input type="text" name="necessita_atendimento_especial" class="form-control br-radius-zero" id="necessita_atendimento_especial" placeholder="" data-rule="minlen:4"/>
+                                </div>
+
+                                <label for="comprovante_cad_unico">*GOSTARIA DE COMPROVAR RENDA PARA PRIORIDADE DE BOLSAS? Envie o comprovante de cadastramento no Cadastro Único para Programas Sociais do Governo Federal,
+                                    disponível <a href="https://aplicacoes.mds.gov.br/sagi/consulta_cidadao/index.php">AQUI</a>, caso seja cadastrado</label>
+                                <div class="form-group">
+                                    <input type="file" name="comprovante_cad_unico" class="form-control br-radius-zero" id="comprovante_cad_unico" />
+                                </div>
+
+
+
                                 
 
                                 
