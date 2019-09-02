@@ -142,7 +142,7 @@ banner
     background-color: rgba(100, 0, 0) !important;
 }
 #banner{
-	background: url('../img/bg-banner.jpg') no-repeat fixed;
+	background: url('../img/foto_pet.jpeg') no-repeat fixed;
 	background-size: 100% auto;
 	width:100%;
 	position: relative;
