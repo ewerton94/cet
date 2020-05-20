@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Processo Seletivo | {% endblock %}
 {% block body %}
-
+{% load staticfiles %}
 
 <script>
 function formatar(mascara, documento){
@@ -22,7 +22,7 @@ function formatar(mascara, documento){
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12">
-					<h2 class="ser-title">Seleção 2019.2 - Inscriçoes abertas!</h2>
+					<h2 class="ser-title">Seleção 2020.1 - Inscriçoes abertas!</h2>
 					<hr class="botm-line">
 				</div>
 				
@@ -64,28 +64,28 @@ function formatar(mascara, documento){
 				{% if messages %}
 <ul class="messages">
     {% for message in messages %}
-    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{% if  message.tags != 'success' %}Verifique o campo: {% endif%}{{ message }}</li>
     {% endfor %}
 </ul>
 {% endif %}
-							<form action="" method="post" role="form" enctype="multipart/form-data" style="color:black" >
+							<form action="" id="formselecao" method="post" role="form" enctype="multipart/form-data" style="color:black" >
                             {% csrf_token %}
 
                             <h3>Informações Pessoais</h3>
 
 
-                            <label for="nome">Nome:</label>
+                            <label for="nome">*Nome Civil:</label>
 							    <div class="form-group">
                                     <input type="text" name="nome" class="form-control br-radius-zero" id="nome" placeholder="Nome" data-rule="minlen:4" required/>
                                 </div>
 
-                                <label for="nome">Nome Social (Caso possua):</label>
+                                <label for="nome">Nome Social (Caso possua): <a href="https://prceu.usp.br/uspdiversidade/nome-social-2/">? Entenda o que é nome social</a></label>
 							    <div class="form-group">
                                     <input type="text" name="nome_social" class="form-control br-radius-zero" id="nome_social" placeholder="Nome Social (Caso possua)" data-rule="minlen:4" />
                                 </div>
                                 
                                
-                                <label for="data">data de nascimento:</label>
+                                <label for="data">Data de nascimento:</label>
                                 <div class="form-group">
                                     <input type="date" name="data" class="form-control br-radius-zero" id="data" placeholder="01/01/2001" data-rule="minlen:4" required/>
                                 </div>
@@ -98,13 +98,13 @@ function formatar(mascara, documento){
                                     <input type="text" name="estado_civil" class="form-control br-radius-zero" id="estado_civil" placeholder="Estado Civil" data-rule="minlen:4" required/>
                                 </div>
                                 <div class="row">
-                                <div class="col-xs-8 col-sm-6" >
+                                <div class="col-xs-12 col-sm-6" >
                                 <label for="rg">Nº Identidade</label>
                                 <div class="form-group">
                                     <input type="text" name="rg" class="form-control br-radius-zero" id="rg" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
                                 </div>
-                                <div class="col-xs-8 col-sm-6" >
+                                <div class="col-xs-12 col-sm-6" >
                                     <label for="arquivorg">Carregar arquivo com cópia do RG</label>
                                 <div class="form-group">
                                     <input type="file" name="arquivorg" class="form-control" id="arquivorg" placeholder="RG" data-rule="minlen:4" required/>
@@ -113,27 +113,92 @@ function formatar(mascara, documento){
                                 </div>
                                 
                                 <div class="row">
-                                <div class="col-xs-8 col-sm-6" >
+                                <div class="col-xs-12 col-sm-6" >
                                 <label for="rg">Nº CPF</label>
                                 <div class="form-group">
                                     <input type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" class="form-control br-radius-zero" id="cpf" placeholder="000.000.000-00" maxlength="14" data-rule="minlen:11" required/>
                                 </div>
                                 </div>
-                                <div class="col-xs-8 col-sm-6">
+                                <div class="col-xs-12 col-sm-6">
                                     <label for="arquivocpf">Carregar arquivo com cópia do CPF</label>
                                 <div class="form-group">
                                     <input type="file" name="arquivocpf" class="form-control br-radius-zero" id="arquivocpf" placeholder="RG" data-rule="minlen:4" />
                                 </div>
+                                
                                 </div>
+                                <div class="col-md-12">
+                                <h3>Foto</h3>
+                                 <label for="foto">Carregue uma foto atual!</label>
+                                <div class="form-group">
+                                    <input type="file" name="foto" class="form-control br-radius-zero" id="foto" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
+                            </div>
+                                </div>
+
+                                <h3>Informações acadêmicas</h3>
+                                 
+
                                 <div class="row">
-                                <div class="col-xs-8 col-sm-6" >
+                                    <div class="col-xs-12 col-sm-6">
+                                    <label for="curso">Curso:</label>
+                                    <div class="form-group">
+                                        <input type="text" name="curso" class="form-control br-radius-zero" id="matricula" placeholder="" data-rule="minlen:4" required/>
+                                    </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6" >
+                                        <label for="comprovante_matricula">Carregar comprovante de matrícula</label>
+                                    <div class="form-group">
+                                        <input type="file" name="comprovante_matricula" class="form-control br-radius-zero" id="comprovante_matricula" placeholder="RG" data-rule="minlen:4" required />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    
+                                    
+                                    <div class="row">
+                                    <div class="col-xs-12 col-sm-6" >
+                                    <label for="periodo">Período:</label>
+                                    <div class="form-group">
+                                        <input type="numer" name="periodo" class="form-control br-radius-zero" id="periodo" placeholder="" data-rule="minlen:4" required/>
+                                    </div>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-6">
+                                        <label for="historico">Carregar Histórico analítico</label>
+                                    <div class="form-group">
+                                        <input type="file" name="historico" class="form-control br-radius-zero" id="historico" placeholder="RG" data-rule="minlen:4" required />
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <h3>Informações de contato</h3>
+
+
+                                            
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <label for="telefone">Telefone</label>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control br-radius-zero" name="telefone" id="telefone" placeholder="82 98888-8888" data-rule="email"  maxlength="13" OnKeyPress="formatar('## #####-####', this)"  required/>
+                                       
+                                    </div>
+
+                                </div>
+                                <div class="col-xs-12 col-sm-6">
+                                    <label for="email">E-mail</label>
+                                <div class="form-group">
+                                    <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" required/>
+                            
+                                </div>
+                                    
+                                </div>
+                            </div>
+                                
+                                <div class="row">
+                                <div class="col-xs-12 col-sm-6" >
                                 <label for="endereco">Endereço:</label>
                                 <div class="form-group">
                                     <input type="text" name="endereco" class="form-control br-radius-zero" id="endereco" placeholder="" maxlength="14" data-rule="minlen:11" required/>
                                 </div>
                                 </div>
-                                <div class="col-xs-8 col-sm-6" >
+                                <div class="col-xs-12 col-sm-6" >
                                 <div class="form-group">
                                   <label for="mora_com">Mora com:</label>
                                   <select class="form-control" name="mora_com" id="sel1">
@@ -147,73 +212,27 @@ function formatar(mascara, documento){
                                 </div>
                                 </div>
                                 </div>
-                                 
-                            
+                         
                                    
-                                <h3>Informações de contato</h3>
-                                    
+                                  
                                 
-                                <label for="email">E-mail</label>
-                                <div class="form-group">
-                                    <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" required/>
-                            
-                                </div>
                                 
-                                <label for="telefone">Telefone</label>
-                                <div class="form-group">
-                                    <input type="text" class="form-control br-radius-zero" name="telefone" id="telefone" placeholder="82 98888-8888" data-rule="email"  maxlength="13" OnKeyPress="formatar('## #####-####', this)"  required/>
-                                   
-                                </div>
-                                <h3>Foto</h3>
-                                 <label for="foto">Carregue uma foto atual!</label>
-                                <div class="form-group">
-                                    <input type="file" name="foto" class="form-control br-radius-zero" id="foto" placeholder="RG" data-rule="minlen:4" required/>
-                                </div>
+                                
+                                
+                                
                                 
                                 <h3>Informações sobre ensino médio</h3>
                                 <label for="local">Local e ano que concluiu o ensino médio:</label>
 							    <div class="form-group">
                                     <input type="text" name="local" class="form-control br-radius-zero" id="local" placeholder="" data-rule="minlen:4" required/>
                                 </div>
-                                <label for="certificado">Carregue um arquivo com seu certificado de ensino médio:</label>
+                                <label for="certificado">Carregue um arquivo com Histórico ou seu certificado de ensino médio:</label>
                                 <div class="form-group">
                                     <input type="file" name="certificado" class="form-control br-radius-zero" id="certificado" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
-                                <h3>Informações acadêmicas</h3>
+                                <h3>Outras Informações</h3>
                                 
-                                <div class="row">
-                                <div class="col-xs-8 col-sm-6">
-                                <label for="matricula">Número de matrícula:</label>
-							    <div class="form-group">
-                                    <input type="text" name="matricula" class="form-control br-radius-zero" id="matricula" placeholder="" data-rule="minlen:4" required/>
-                                </div>
-                                </div>
-                                <div class="col-xs-8 col-sm-6" >
-                                    <label for="comprovante_matricula">Carregar comprovante de matrícula</label>
-                                <div class="form-group">
-                                    <input type="file" name="comprovante_matricula" class="form-control br-radius-zero" id="comprovante_matricula" placeholder="RG" data-rule="minlen:4" required />
-                                </div>
-                                </div>
-                                </div>
                                 
-							    <div class="form-group">
-                                <label for="curso">Curso:</label>
-                                    <input type="text" name="curso" class="form-control br-radius-zero" id="curso" placeholder=""  data-rule="minlen:4" required/>
-                                </div>
-                                <div class="row">
-                                <div class="col-xs-8 col-sm-6" >
-                                <label for="periodo">Período:</label>
-							    <div class="form-group">
-                                    <input type="numer" name="periodo" class="form-control br-radius-zero" id="periodo" placeholder="" data-rule="minlen:4" required/>
-                                </div>
-                                </div>
-                                <div class="col-xs-8 col-sm-6">
-                                    <label for="historico">Carregar Histórico analítico</label>
-                                <div class="form-group">
-                                    <input type="file" name="historico" class="form-control br-radius-zero" id="historico" placeholder="RG" data-rule="minlen:4" required />
-                                </div>
-                                </div>
-                                </div>
                                 
                                 <label for="exerce">Exerce alguma atividade remunerada fora da UFAL?</label>
 							    <div class="form-group">
@@ -302,8 +321,18 @@ function formatar(mascara, documento){
                                 </div>
 
 
+                                <label for="internet">Você possui dificuldades no acesso à internet?</label>
+							    <div class="form-group">
+                                <label class="radio-inline"><input type="radio" name="internet" value="Sim" >Sim</label>
+                                <label class="radio-inline"><input type="radio" name="internet" value="Não">Não</label>    
+                                </div>
+
 
                                 
+ <label for="confirma" style="margin-top: 30px; margin-bottom: 30px;">
+    <input type="checkbox" name="confirma" id="confirma">
+    Declaro que estou de acordo com todas as regras definidas no edital Nº 01/2020 do PET Ciência e Tecnologia/Conexões de Saberes e que as informações declaradas acima são verdadeiras
+</label>
 
                                 
                                 
@@ -322,8 +351,10 @@ function formatar(mascara, documento){
                                     <div class="validation"></div>
                                 </div>
                                 -->
+
+
 								<div class="form-action">
-									<button type="submit" class="btn btn-form">Enviar</button>
+									<button type="submit" class="btn btn-form" id="botaoenviarselecao"  disabled>Enviar</button> <img class="hide" id="sendformselecaoloading" src="{% static 'img/unnamed.gif' %}" style="height: 6rem;" alt=""> 
 								</div>
 							</form>
 

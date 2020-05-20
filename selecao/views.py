@@ -20,8 +20,10 @@ def selecao(request):
             messages.add_message(request, messages.SUCCESS, 'Formulário enviado!\nObrigado por participar do nosso processo seletivo. Boa sorte!')
             return HttpResponseRedirect('%s/selecao/#inscricao'%settings.BASE_URL)
         else:
-            messages.add_message(request, messages.ERROR, 'ERRO!')
-            render(request,'index_selecao.html',add_contextos_gerais({'selecao':Selecao.objects.all()[0],'form':form}))          
+            print(form.errors)
+            for erro in form.errors:
+                messages.add_message(request, messages.ERROR, erro)
+            return render(request,'index_selecao.html',add_contextos_gerais({'selecao':Selecao.objects.all()[0],'form':form}))          
     selecao = Selecao.objects.all()
     if selecao:
         selecao=selecao[0]
