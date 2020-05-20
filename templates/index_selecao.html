@@ -85,27 +85,27 @@ function formatar(mascara, documento){
                                 </div>
                                 
                                
-                                <label for="data">Data de nascimento:</label>
+                                <label for="data">*Data de nascimento:</label>
                                 <div class="form-group">
                                     <input type="date" name="data" class="form-control br-radius-zero" id="data" placeholder="01/01/2001" data-rule="minlen:4" required/>
                                 </div>
-                                 <label for="naturalidade">Naturalidade:</label>
+                                 <label for="naturalidade">*Naturalidade:</label>
 							    <div class="form-group">
                                     <input type="text" name="naturalidade" class="form-control br-radius-zero" id="naturalidade" placeholder="naturalidade" data-rule="minlen:4" required/>
                                 </div>
-                                <label for="estado_civil">Estado Civil</label>
+                                <label for="estado_civil">*Estado Civil</label>
                                 <div class="form-group">
                                     <input type="text" name="estado_civil" class="form-control br-radius-zero" id="estado_civil" placeholder="Estado Civil" data-rule="minlen:4" required/>
                                 </div>
                                 <div class="row">
                                 <div class="col-xs-12 col-sm-6" >
-                                <label for="rg">Nº Identidade</label>
+                                <label for="rg">*Nº Identidade</label>
                                 <div class="form-group">
                                     <input type="text" name="rg" class="form-control br-radius-zero" id="rg" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6" >
-                                    <label for="arquivorg">Carregar arquivo com cópia do RG</label>
+                                    <label for="arquivorg">*Carregar arquivo com cópia do RG</label>
                                 <div class="form-group">
                                     <input type="file" name="arquivorg" class="form-control" id="arquivorg" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
@@ -114,13 +114,13 @@ function formatar(mascara, documento){
                                 
                                 <div class="row">
                                 <div class="col-xs-12 col-sm-6" >
-                                <label for="rg">Nº CPF</label>
+                                <label for="rg">*Nº CPF</label>
                                 <div class="form-group">
                                     <input type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" class="form-control br-radius-zero" id="cpf" placeholder="000.000.000-00" maxlength="14" data-rule="minlen:11" required/>
                                 </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="arquivocpf">Carregar arquivo com cópia do CPF</label>
+                                    <label for="arquivocpf">*Carregar arquivo com cópia do CPF</label>
                                 <div class="form-group">
                                     <input type="file" name="arquivocpf" class="form-control br-radius-zero" id="arquivocpf" placeholder="RG" data-rule="minlen:4" />
                                 </div>
@@ -129,7 +129,7 @@ function formatar(mascara, documento){
                             </div>
                                 <div class="col-md-12">
                                 <h3>Foto</h3>
-                                 <label for="foto">Carregue uma foto atual!</label>
+                                 <label for="foto">*Carregue uma foto atual!</label>
                                 <div class="form-group">
                                     <input type="file" name="foto" class="form-control br-radius-zero" id="foto" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
@@ -141,13 +141,13 @@ function formatar(mascara, documento){
 
                                 <div class="row">
                                     <div class="col-xs-12 col-sm-6">
-                                    <label for="curso">Curso:</label>
+                                    <label for="curso">*Curso:</label>
                                     <div class="form-group">
                                         <input type="text" name="curso" class="form-control br-radius-zero" id="matricula" placeholder="" data-rule="minlen:4" required/>
                                     </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6" >
-                                        <label for="comprovante_matricula">Carregar comprovante de matrícula</label>
+                                        <label for="comprovante_matricula">*Carregar comprovante de matrícula</label>
                                     <div class="form-group">
                                         <input type="file" name="comprovante_matricula" class="form-control br-radius-zero" id="comprovante_matricula" placeholder="RG" data-rule="minlen:4" required />
                                     </div>
@@ -157,13 +157,13 @@ function formatar(mascara, documento){
                                     
                                     <div class="row">
                                     <div class="col-xs-12 col-sm-6" >
-                                    <label for="periodo">Período:</label>
+                                    <label for="periodo">*Período:</label>
                                     <div class="form-group">
                                         <input type="numer" name="periodo" class="form-control br-radius-zero" id="periodo" placeholder="" data-rule="minlen:4" required/>
                                     </div>
                                     </div>
                                     <div class="col-xs-12 col-sm-6">
-                                        <label for="historico">Carregar Histórico analítico</label>
+                                        <label for="historico">*Carregar Histórico analítico</label>
                                     <div class="form-group">
                                         <input type="file" name="historico" class="form-control br-radius-zero" id="historico" placeholder="RG" data-rule="minlen:4" required />
                                     </div>
@@ -175,7 +175,7 @@ function formatar(mascara, documento){
                                             
                             <div class="row">
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="telefone">Telefone</label>
+                                    <label for="telefone">*Telefone</label>
                                     <div class="form-group">
                                         <input type="text" class="form-control br-radius-zero" name="telefone" id="telefone" placeholder="82 98888-8888" data-rule="email"  maxlength="13" OnKeyPress="formatar('## #####-####', this)"  required/>
                                        
@@ -183,7 +183,7 @@ function formatar(mascara, documento){
 
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
-                                    <label for="email">E-mail</label>
+                                    <label for="email">*E-mail</label>
                                 <div class="form-group">
                                     <input type="email" class="form-control br-radius-zero" name="email" id="email" placeholder="E-mail" data-rule="email" data-msg="Please enter a valid email" required/>
                             
@@ -194,15 +194,15 @@ function formatar(mascara, documento){
                                 
                                 <div class="row">
                                 <div class="col-xs-12 col-sm-6" >
-                                <label for="endereco">Endereço:</label>
+                                <label for="endereco">*Endereço:</label>
                                 <div class="form-group">
                                     <input type="text" name="endereco" class="form-control br-radius-zero" id="endereco" placeholder="" maxlength="14" data-rule="minlen:11" required/>
                                 </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6" >
                                 <div class="form-group">
-                                  <label for="mora_com">Mora com:</label>
-                                  <select class="form-control" name="mora_com" id="sel1">
+                                  <label for="mora_com">*Mora com:</label>
+                                  <select class="form-control" name="mora_com" id="sel1" required>
                                     <option value = "Pais">Pais</option>
                                     <option value = "Familiares">Familiares</option>
                                     <option value = "Amigos">Amigos</option>
@@ -223,11 +223,11 @@ function formatar(mascara, documento){
                                 
                                 
                                 <h3>Informações sobre ensino médio</h3>
-                                <label for="local">Local e ano que concluiu o ensino médio:</label>
+                                <label for="local">*Local e ano que concluiu o ensino médio:</label>
 							    <div class="form-group">
                                     <input type="text" name="local" class="form-control br-radius-zero" id="local" placeholder="" data-rule="minlen:4" required/>
                                 </div>
-                                <label for="certificado">Carregue um arquivo com Histórico ou seu certificado de ensino médio:</label>
+                                <label for="certificado">*Carregue um arquivo com Histórico ou seu certificado de ensino médio:</label>
                                 <div class="form-group">
                                     <input type="file" name="certificado" class="form-control br-radius-zero" id="certificado" placeholder="RG" data-rule="minlen:4" required/>
                                 </div>
@@ -235,7 +235,7 @@ function formatar(mascara, documento){
                                 
                                 
                                 
-                                <label for="exerce">Exerce alguma atividade remunerada fora da UFAL?</label>
+                                <label for="exerce">*Exerce alguma atividade remunerada fora da UFAL?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="exerce" value="1" id="exerce">Sim</label>
                                 <label class="radio-inline"><input type="radio" name="exerce" value="0">Não</label>                                
@@ -253,7 +253,7 @@ function formatar(mascara, documento){
 
                         
                                 
-                                <label for="exerce">Recebe algum auxílio ou bolsa da UFAL?</label>
+                                <label for="exerce">*Recebe algum auxílio ou bolsa da UFAL?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="recebe">Sim</label>
                                 <label class="radio-inline"><input type="radio" name="recebe">Não</label>                                
@@ -263,7 +263,7 @@ function formatar(mascara, documento){
                                     <input type="text" name="bolsa" class="form-control br-radius-zero" id="bolsa" placeholder="" data-rule="minlen:4"/>
                                 </div>
                                 
-                                <label for="participa">Participa de algum projeto de Pesquisa?</label>
+                                <label for="participa">*Participa de algum projeto de Pesquisa?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="participa" value="1" >Sim</label>
                                 <label class="radio-inline"><input type="radio" name="participa" value="0">Não</label>    
@@ -304,7 +304,7 @@ function formatar(mascara, documento){
                                     <input type="file" name="auto_declaracao" class="form-control br-radius-zero" id="auto_declaracao" />
                                 </div>
 
-                                <label for="atendimento_especial">**O CANDIDATO(A) NECESSITA DE ATENDIMENTO ESPECIAL?</label>
+                                <label for="atendimento_especial">*O CANDIDATO(A) NECESSITA DE ATENDIMENTO ESPECIAL?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="atendimento_especial" value="Sim" >Sim</label>
                                 <label class="radio-inline"><input type="radio" name="atendimento_especial" value="Não">Não</label>    
@@ -315,14 +315,14 @@ function formatar(mascara, documento){
                                     <input type="text" name="necessita_atendimento_especial" class="form-control br-radius-zero" id="necessita_atendimento_especial" placeholder="" data-rule="minlen:4"/>
                                 </div>
 
-                                <label for="comprovante_cad_unico">*GOSTARIA DE COMPROVAR RENDA PARA PRIORIDADE DE BOLSAS? Envie o comprovante de cadastramento no Cadastro Único para Programas Sociais do Governo Federal,
+                                <label for="comprovante_cad_unico">GOSTARIA DE COMPROVAR RENDA PARA PRIORIDADE DE BOLSAS? Envie o comprovante de cadastramento no Cadastro Único para Programas Sociais do Governo Federal,
                                     disponível <a href="https://aplicacoes.mds.gov.br/sagi/consulta_cidadao/index.php">AQUI</a>, caso seja cadastrado</label>
                                 <div class="form-group">
                                     <input type="file" name="comprovante_cad_unico" class="form-control br-radius-zero" id="comprovante_cad_unico" />
                                 </div>
 
 
-                                <label for="internet">Você possui dificuldades no acesso à internet?</label>
+                                <label for="internet">*Você possui dificuldades no acesso à internet?</label>
 							    <div class="form-group">
                                 <label class="radio-inline"><input type="radio" name="internet" value="Sim" >Sim</label>
                                 <label class="radio-inline"><input type="radio" name="internet" value="Não">Não</label>    
