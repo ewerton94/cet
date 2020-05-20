@@ -50,7 +50,10 @@
 				<div class="col-md-3 col-sm-3">
 			      <div class="thumbnail">
                       <div class="team-border-img" align=center>
-			      	<img src="{{ petiano.foto.url }}" alt="{{ petiano.nome }}" class="team-img">
+						  <div class="team-img" style="overflow:hidden;text-align:center;">
+							<img src="{{ petiano.foto.url }}" alt="{{ petiano.nome }}" >
+						  </div>
+			      	
                           </div>
 			        <div class="caption">
 			          <h4><a href="#"><i class="fa fa-graduation-cap"></i> </a>{{ petiano.nome }}</h4>

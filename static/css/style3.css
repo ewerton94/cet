@@ -304,6 +304,8 @@ doctor team
 .team-img{
     width: 100%;
     height: 250px;
+    align-items: center; /* vertical */
+    justify-content: center;
 }
 /***************************************
 Sobre
