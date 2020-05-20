@@ -114,9 +114,9 @@ function formatar(mascara, documento){
                                 
                                 <div class="row">
                                 <div class="col-xs-12 col-sm-6" >
-                                <label for="cpf">Nº CPF</label>
+                                <label for="rg">Nº CPF</label>
                                 <div class="form-group">
-                                    <input type="text" name="cpf" class="form-control br-radius-zero" id="cpf" placeholder="000.000.000-00" required/>
+                                    <input type="text" name="cpf" OnKeyPress="formatar('###.###.###-##', this)" class="form-control br-radius-zero" id="cpf" placeholder="000.000.000-00" maxlength="14" data-rule="minlen:11" required/>
                                 </div>
                                 </div>
                                 <div class="col-xs-12 col-sm-6">
@@ -126,6 +126,7 @@ function formatar(mascara, documento){
                                 </div>
                                 
                                 </div>
+                            </div>
                                 <div class="col-md-12">
                                 <h3>Foto</h3>
                                  <label for="foto">Carregue uma foto atual!</label>
